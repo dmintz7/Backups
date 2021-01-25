@@ -1,0 +1,16 @@
+log_level="INFO"
+log_folder= ""
+backup_path=""
+recycle_bin_path = ""
+
+paths = ''
+backup_days = 
+minium_files = 
+
+bitwarden_health_checks_url=""
+docker_health_checks_url=""
+
+mysql_host=""
+mysql_user=""
+mysql_passwd=""
+
