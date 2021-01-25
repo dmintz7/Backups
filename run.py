@@ -12,7 +12,7 @@ consoleHandler.setFormatter(formatter)
 logger.addHandler(consoleHandler)
 logging.getLogger("requests").setLevel(logging.WARNING)
 logger.setLevel(config.LOG_LEVEL)
-fileHandler = RotatingFileHandler(config.LOG_FOLDER + 'Backups.log', maxBytes=1024 * 1024 * 1, backupCount=1)
+fileHandler = RotatingFileHandler(config.LOG_FOLDER + '/Backups.log', maxBytes=1024 * 1024 * 1, backupCount=1)
 fileHandler.setFormatter(formatter)
 logger.addHandler(fileHandler)
 
