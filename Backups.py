@@ -1,7 +1,6 @@
-import sys, time, xmltodict, requests, config, optparse, plexapi.exceptions, logging, os, urllib3, random, sodarr
+import sys, config, optparse, logging, os, shutil, subprocess, pymysql 
 from logging.handlers import RotatingFileHandler
-
-import sql_backup, cleanup_backups
+from datetime import datetime
 
 filename, file_extension = os.path.splitext(os.path.basename(__file__))
 formatter = logging.Formatter('%(asctime)s - %(levelname)10s - %(module)15s:%(funcName)30s:%(lineno)5s - %(message)s')
@@ -17,8 +16,7 @@ fileHandler.setFormatter(formatter)
 logger.addHandler(fileHandler)
 
 def cleanup_backups():
-	backup_path = config.backup_path
-	paths = confif.path.split(";")
+	paths = config.path.split(";")
 	for path in paths:
 		bin_path = config.recycle_bin_path + "/" + path
 		try:
