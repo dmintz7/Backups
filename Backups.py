@@ -75,3 +75,11 @@ if __name__ == "__main__":
 	parser = optparse.OptionParser()
 	parser.add_option('-c', '--clean-up', action="store_const", const=True, dest="cleanup_backups")
 	parser.add_option('-s', '--sql-backup', action="store_const", const=True, dest="sql_backup")
+	options, args = parser.parse_args()
+	
+	if options.cleanup_backups:
+		logger.info("Cleaning Up Backups")
+		cleanup_backups()
+	if options.sql_backup:
+		logger.info("Backing Up SQL Databases")
+		sql_backup()
