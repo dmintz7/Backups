@@ -57,7 +57,7 @@ def sql_backup():
 				db = db[0]
 				logger.info("(%s/%s) Backing Up SQL Database: %s" % (x+1, len(databases), db))
 				filename = "%s/%s - %s.sql" % (folder_name, current_datetime, db)
-				command = 'mysqldump -h %s -u %s -p%s --databases %s' % (config.mysql_host, config.mysql_user, config.mysql_passwd, db)
+				command = 'mysqldump --no-tablespaces -h %s -u %s -p%s --databases %s' % (config.mysql_host, config.mysql_user, config.mysql_passwd, db)
 				with open(filename,'w') as output:
 					c = subprocess.Popen(command, stdout=output, shell=True)
 					c.wait()
