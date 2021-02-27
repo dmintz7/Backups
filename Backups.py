@@ -16,7 +16,7 @@ fileHandler.setFormatter(formatter)
 logger.addHandler(fileHandler)
 
 def cleanup_backups():
-	paths = config.path.split(";")
+	paths = config.paths.split(";")
 	for path in paths:
 		bin_path = config.recycle_bin_path + "/" + path
 		try:
